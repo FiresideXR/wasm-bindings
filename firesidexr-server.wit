@@ -1,0 +1,44 @@
+package firesidexr:server@0.1.0;
+
+//Required to implement the "init" function.
+interface init {
+
+    flags module-perms {
+        create-objects,
+        edit-world,
+
+        access-uuid,
+        get-player-list,
+        server-tick,
+
+        kick-user,
+
+        blocklist-user,
+        allowlist-user,
+        modify-server-config,
+
+
+    }
+
+
+    record config {
+        required: module-perms,
+        optional: module-perms,
+
+    }
+
+    //It is required to implement this function
+    init: func() -> config;
+
+}
+
+
+
+
+
+interface server-tick {
+
+
+    tick: func(delta: f32);
+
+}

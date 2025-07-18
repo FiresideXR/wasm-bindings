@@ -1,0 +1,29 @@
+package firesidexr:players@0.1.0;
+
+interface players {
+
+    type color = tuple<f32, f32, f32>;
+
+    //contains avatar data
+    record avatar {
+        head: string,
+        torso: string,
+        primary: color,
+        accent: color
+    }
+
+    record passport {
+        iss: string,
+        uuid: u64,
+        username: string
+    }
+
+    record player {
+        net-id: u64,
+        passports: list<passport>,
+        avatar: avatar,
+        display-name: string,
+    }
+
+    get-players: func() -> list<player>;
+}
